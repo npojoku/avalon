@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avalon 24-Piece Silverware | Stainless Steel Flatware</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f8f5f0;
+      --charcoal: #1a1816;
+      --warm-gray: #5c5652;
+      --accent: #9a7b5c;
+      --white: #fff;
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 300;
+      background: var(--charcoal);
+      color: var(--cream);
+      line-height: 1.6;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ---- Hero ---- */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      transform: scale(1.05);
+      animation: heroZoom 20s ease-out forwards;
+    }
+
+    .hero-bg img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(26,24,22,0.4) 0%, rgba(26,24,22,0.75) 70%, rgba(26,24,22,0.95) 100%);
+      pointer-events: none;
+    }
+
+    @keyframes heroZoom {
+      from { transform: scale(1.15); }
+      to { transform: scale(1.05); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero-content h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3.5rem, 12vw, 7rem);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      text-shadow: 0 0 60px rgba(0,0,0,0.5);
+      opacity: 0;
+      animation: fadeUp 1s var(--ease-out-expo) 0.3s forwards;
+    }
+
+    .hero-tagline {
+      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.85);
+      margin-top: 0.75rem;
+      opacity: 0;
+      animation: fadeUp 1s var(--ease-out-expo) 0.6s forwards;
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 28px;
+      height: 44px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-radius: 20px;
+      opacity: 0;
+      animation: fadeUp 1s var(--ease-out-expo) 1s forwards;
+    }
+
+    .hero-scroll::before {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      width: 4px;
+      height: 8px;
+      background: rgba(255,255,255,0.8);
+      border-radius: 2px;
+      transform: translateX(-50%);
+      animation: scrollDot 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollDot {
+      0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
+      50% { opacity: 1; transform: translateX(-50%) translateY(12px); }
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(28px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* ---- Intro block ---- */
+    .intro {
+      background: var(--charcoal);
+      padding: clamp(4rem, 10vw, 7rem) 1.5rem;
+      text-align: center;
+    }
+
+    .intro .wrap {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .intro h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
+
+    .intro p {
+      font-size: 1.1rem;
+      color: rgba(248,245,240,0.8);
+      line-height: 1.75;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ---- Gallery ---- */
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto auto;
+      gap: 0.5rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 0.5rem 4rem;
+    }
+
+    @media (max-width: 900px) {
+      .gallery { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 560px) {
+      .gallery { grid-template-columns: 1fr; }
+    }
+
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 12px;
+      aspect-ratio: 4/3;
+      background: #2a2624;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.8s var(--ease-out-expo);
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .gallery-item.wide {
+      grid-column: span 2;
+      aspect-ratio: 21/9;
+    }
+
+    @media (max-width: 900px) {
+      .gallery-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
+    }
+
+    @media (max-width: 560px) {
+      .gallery-item.wide { grid-column: span 1; aspect-ratio: 16/10; }
+    }
+
+    /* ---- Features ---- */
+    .features-section {
+      background: var(--cream);
+      color: var(--charcoal);
+      padding: clamp(4rem, 10vw, 6rem) 1.5rem;
+    }
+
+    .features-section .wrap {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .features-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 600;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .features-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .features-list li {
+      position: relative;
+      padding: 1.5rem 1.25rem;
+      padding-left: 2.5rem;
+      background: var(--white);
+      border-radius: 12px;
+      box-shadow: 0 4px 24px rgba(26,24,22,0.06);
+      transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s ease;
+    }
+
+    .features-list li:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(26,24,22,0.1);
+    }
+
+    .features-list li::before {
+      content: '';
+      position: absolute;
+      left: 1.25rem;
+      top: 1.5rem;
+      width: 8px;
+      height: 8px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .features-list li strong {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.25rem;
+      color: var(--charcoal);
+    }
+
+    .features-list li span {
+      font-size: 0.95rem;
+      color: var(--warm-gray);
+    }
+
+    /* ---- CTA ---- */
+    .cta-section {
+      background: linear-gradient(180deg, #2a2624 0%, var(--charcoal) 100%);
+      padding: clamp(3rem, 8vw, 5rem) 1.5rem;
+      text-align: center;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: var(--white);
+      color: var(--charcoal);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 1.1rem 2.25rem;
+      border-radius: 50px;
+      transition: transform 0.35s var(--ease-out-expo), box-shadow 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+      transition: left 0.6s ease;
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+    }
+
+    .cta-btn:hover::before {
+      left: 100%;
+    }
+
+    .cta-btn svg {
+      width: 18px;
+      height: 18px;
+      transition: transform 0.3s ease;
+    }
+
+    .cta-btn:hover svg {
+      transform: translateX(4px);
+    }
+
+    /* ---- Footer ---- */
+    footer {
+      padding: 1.75rem 1.5rem;
+      text-align: center;
+      font-size: 0.875rem;
+      color: rgba(248,245,240,0.5);
+    }
+
+    footer p {
+      margin: 0 0 0.5rem;
+    }
+
+    footer p:last-child {
+      margin-bottom: 0;
+    }
+
+    footer a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    footer a:hover {
+      color: var(--cream);
+    }
+  </style>
+</head>
+<body>
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="images/hero.jpg" alt="" role="presentation" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1920&q=80'">
+    </div>
+    <div class="hero-content">
+      <h1>Avalon</h1>
+      <p class="hero-tagline">24-Piece Silverware · Stainless Steel Flatware</p>
+    </div>
+    <a href="#intro" class="hero-scroll" aria-label="Scroll down"></a>
+  </section>
+
+  <section id="intro" class="intro">
+    <div class="wrap">
+      <h2 class="reveal">Elevate Every Table</h2>
+      <p class="reveal">Crafted in durable stainless steel, the Avalon 24-piece set brings timeless design to everyday dining. From casual suppers to full dinner parties—elegant, dependable, and ready for life.</p>
+    </div>
+  </section>
+
+  <div class="gallery">
+    <div class="gallery-item reveal">
+      <img src="images/gallery1.jpg" alt="Avalon flatware set" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'">
+    </div>
+    <div class="gallery-item reveal">
+      <img src="images/gallery2.jpg" alt="Avalon silverware on table" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=80'">
+    </div>
+    <div class="gallery-item reveal">
+      <img src="images/gallery3.jpg" alt="Avalon 24-piece set" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80'">
+    </div>
+    <div class="gallery-item wide reveal">
+      <img src="images/gallery4.jpg" alt="Avalon stainless steel flatware" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80'">
+    </div>
+    <div class="gallery-item reveal">
+      <img src="images/gallery5.jpg" alt="Avalon cutlery detail" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1578474846511-04ba529f0b88?auto=format&fit=crop&w=800&q=80'">
+    </div>
+  </div>
+
+  <section class="features-section">
+    <div class="wrap">
+      <h2 class="reveal">Why Avalon</h2>
+      <ul class="features-list">
+        <li class="reveal"><strong>24 pieces</strong><span>Full service for 4 — dinner fork, knife, soup spoon, teaspoon each.</span></li>
+        <li class="reveal"><strong>Stainless steel</strong><span>Durable, dishwasher-safe, and built to last.</span></li>
+        <li class="reveal"><strong>Timeless design</strong><span>Pairs with any table — casual or formal.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <a href="https://www.amazon.com/Avalon-24-Piece-Silverware-Stainless-Flatware/dp/B07F1X617C" class="cta-btn reveal" target="_blank" rel="noopener noreferrer">
+      View on Amazon
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </section>
+
+  <footer>
+    <p>Contact: <a href="mailto:avalonaks@gmail.com">avalonaks@gmail.com</a></p>
+    <p>Product page for <a href="https://www.amazon.com/Avalon-24-Piece-Silverware-Stainless-Flatware/dp/B07F1X617C" target="_blank" rel="noopener noreferrer">Avalon 24-Piece Silverware</a>.</p>
+  </footer>
+
+  <script>
+    (function () {
+      const revealEls = document.querySelectorAll('.reveal');
+
+      function reveal() {
+        revealEls.forEach(function (el) {
+          const rect = el.getBoundingClientRect();
+          const inView = rect.top < window.innerHeight - 80;
+          if (inView) el.classList.add('visible');
+        });
+      }
+
+      window.addEventListener('scroll', reveal);
+      window.addEventListener('resize', reveal);
+      reveal();
+    })();
+  </script>
+</body>
+</html>
