@@ -301,6 +301,67 @@
       color: var(--warm-gray);
     }
 
+    /* ---- Product benefits ---- */
+    .benefits-section {
+      background: var(--white);
+      color: var(--charcoal);
+      padding: clamp(3rem, 8vw, 5rem) 1.5rem;
+    }
+
+    .benefits-section .wrap {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .benefits-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      text-align: center;
+      color: var(--charcoal);
+    }
+
+    .benefits-section .subtitle {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--warm-gray);
+      margin-bottom: 2rem;
+    }
+
+    .benefits-list {
+      list-style: none;
+    }
+
+    .benefits-list li {
+      position: relative;
+      padding-left: 1.75rem;
+      margin-bottom: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--charcoal);
+    }
+
+    .benefits-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .benefits-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5em;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .benefits-list li strong {
+      color: var(--charcoal);
+      font-weight: 600;
+    }
+
     /* ---- CTA ---- */
     .cta-section {
       background: linear-gradient(180deg, #2a2624 0%, var(--charcoal) 100%);
@@ -427,6 +488,20 @@
         <li class="reveal"><strong>24 pieces</strong><span>Full service for 4 — dinner fork, knife, soup spoon, teaspoon each.</span></li>
         <li class="reveal"><strong>Stainless steel</strong><span>Durable, dishwasher-safe, and built to last.</span></li>
         <li class="reveal"><strong>Timeless design</strong><span>Pairs with any table — casual or formal.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="benefits-section">
+    <div class="wrap">
+      <h2 class="reveal">Product benefits</h2>
+      <p class="subtitle reveal">Silver · 24-piece set</p>
+      <ul class="benefits-list">
+        <li class="reveal"><strong>Made to last a lifetime</strong> – Expertly crafted by Japanese artisans from high-grade 18/10 stainless steel, this silverware is rust and corrosion resistant, keeping its polished shine and elegance for years.</li>
+        <li class="reveal"><strong>A gift they’ll cherish</strong> – Comes in a sleek luxury gift box, perfect for weddings, anniversaries, housewarmings, holidays, or New Year celebrations.</li>
+        <li class="reveal"><strong>Complete 24-piece dining set for six</strong> – Includes 6 steak knives, 6 dinner forks, 6 tablespoons, and 6 teaspoons, each balanced for comfort and effortless use.</li>
+        <li class="reveal"><strong>Elegant, modern, and versatile</strong> – Timeless design with smooth lines and a mirror-polished finish complements any table, from family meals to festive parties or outdoor events.</li>
+        <li class="reveal"><strong>Easy care and lifetime durability</strong> – Avalon stainless steel silverware is dishwasher safe and crafted to maintain its brilliant shine for a lifetime, giving you more time enjoying meals and less time on cleanup.</li>
       </ul>
     </div>
   </section>
