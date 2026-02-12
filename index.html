@@ -313,6 +313,22 @@
       margin-bottom: 2.5rem;
     }
 
+    .product-versions[data-active="silver"] {
+      background: #d8d8d8;
+    }
+
+    .product-versions[data-active="black"] {
+      background: #2a2a2a;
+    }
+
+    .product-versions[data-active="black"] .product-versions-heading {
+      color: #f0f0f0;
+    }
+
+    .product-versions[data-active="black"] .product-versions-sub {
+      color: #b0b0b0;
+    }
+
     .tab-frame {
       max-width: 980px;
       margin: 0 auto;
@@ -320,6 +336,29 @@
       border-radius: 12px;
       overflow: hidden;
       box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+      transition: background 0.35s var(--ease);
+    }
+
+    .product-versions[data-active="silver"] .tab-frame {
+      background: #e2e2e2;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    .product-versions[data-active="black"] .tab-frame {
+      background: #252525;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+    }
+
+    .product-versions[data-active="black"] .tab-buttons {
+      border-bottom-color: rgba(255,255,255,0.12);
+    }
+
+    .product-versions[data-active="black"] .tab-btn {
+      color: rgba(255,255,255,0.55);
+    }
+
+    .product-versions[data-active="black"] .tab-btn:hover {
+      color: rgba(255,255,255,0.9);
     }
 
     .tab-buttons {
@@ -352,8 +391,26 @@
       color: var(--link);
     }
 
+    #tab-silver.active {
+      color: #5a5a5a;
+      background: rgba(192,192,192,0.35);
+    }
+
+    #tab-black.active {
+      color: #f5f5f5;
+      background: rgba(45,45,45,0.9);
+    }
+
     .tab-btn.active:hover {
       background: transparent;
+    }
+
+    #tab-silver.active:hover {
+      background: rgba(192,192,192,0.5);
+    }
+
+    #tab-black.active:hover {
+      background: rgba(35,35,35,1);
     }
 
     .tab-slider {
@@ -364,8 +421,16 @@
       height: 2px;
       background: var(--link);
       border-radius: 1px;
-      transition: transform 0.4s var(--ease), width 0.4s var(--ease);
+      transition: transform 0.4s var(--ease), width 0.4s var(--ease), background 0.35s var(--ease);
       will-change: transform;
+    }
+
+    .tab-buttons:has>(#tab-silver.active) .tab-slider {
+      background: #9a9a9a;
+    }
+
+    .tab-buttons:has>(#tab-black.active) .tab-slider {
+      background: #e0e0e0;
     }
 
     .tab-panels {
@@ -391,6 +456,14 @@
       visibility: visible;
       pointer-events: auto;
       transform: translateY(0);
+    }
+
+    #panel-silver.active {
+      background: #d8d8d8;
+    }
+
+    #panel-black.active {
+      background: #2a2a2a;
     }
 
     .tab-panel .version-gallery {
@@ -430,71 +503,6 @@
 
     .tab-panel .version-gallery .gallery-item:hover img {
       transform: scale(1.06);
-    }
-
-    /* ---- Features ---- */
-    .features-section {
-      background: var(--white);
-      padding: clamp(5rem, 12vw, 9rem) 1.5rem;
-    }
-
-    .features-section .wrap {
-      max-width: 820px;
-      margin: 0 auto;
-    }
-
-    .features-section h2 {
-      font-size: clamp(2.5rem, 5vw, 3.25rem);
-      font-weight: 600;
-      letter-spacing: -0.02em;
-      margin-bottom: 2rem;
-      text-align: center;
-      color: var(--black);
-    }
-
-    .features-list {
-      list-style: none;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 1.25rem;
-    }
-
-    .features-list li {
-      position: relative;
-      padding: 1.75rem 1.5rem;
-      padding-left: 2rem;
-      background: var(--gray-2);
-      border-radius: 12px;
-      transition: background 0.25s ease;
-    }
-
-    .features-list li:hover {
-      background: #ebebed;
-    }
-
-    .features-list li::before {
-      content: '';
-      position: absolute;
-      left: 1.25rem;
-      top: 1.75rem;
-      width: 4px;
-      height: 4px;
-      background: var(--black);
-      border-radius: 50%;
-    }
-
-    .features-list li strong {
-      display: block;
-      font-weight: 600;
-      font-size: 1.05rem;
-      margin-bottom: 0.25rem;
-      color: var(--black);
-    }
-
-    .features-list li span {
-      font-size: 0.9375rem;
-      color: var(--gray-1);
-      line-height: 1.45;
     }
 
     /* ---- Product benefits ---- */
@@ -636,28 +644,37 @@
     .footer-links {
       margin-bottom: 1rem;
       line-height: 1.6;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 0.25rem;
     }
 
     .footer-links a {
       color: var(--link);
       text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.25rem 0;
     }
 
     .footer-links a:hover {
       text-decoration: underline;
     }
 
-    .footer-links .sep {
-      margin: 0 0.5rem;
-      color: var(--gray-3);
-      pointer-events: none;
+    .footer-icon {
+      width: 1.25rem;
+      height: 1.25rem;
+      flex-shrink: 0;
     }
 
-    @media (max-width: 520px) {
-      .footer-links .sep {
-        display: block;
-        margin: 0.5rem 0;
-      }
+    .footer-links .sep {
+      margin: 0 0.35rem;
+      color: var(--gray-3);
+      pointer-events: none;
+      font-size: 0.65rem;
     }
 
     .footer-copy {
@@ -703,7 +720,7 @@
     </div>
   </section>
 
-  <section class="product-versions" id="finishes">
+  <section class="product-versions" id="finishes" data-active="silver">
     <h2 class="product-versions-heading reveal">Choose your finish</h2>
     <p class="product-versions-sub reveal">Available in Silver and Black — same quality, same 24-piece set.</p>
 
@@ -731,17 +748,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <section class="features-section">
-    <div class="wrap">
-      <h2 class="reveal">Why Avalon</h2>
-      <ul class="features-list">
-        <li class="reveal"><strong>24 pieces</strong><span>Full service for 4 — dinner fork, knife, soup spoon, teaspoon each.</span></li>
-        <li class="reveal"><strong>Stainless steel</strong><span>Durable, dishwasher-safe, and built to last.</span></li>
-        <li class="reveal"><strong>Timeless design</strong><span>Pairs with any table — casual or formal.</span></li>
-      </ul>
     </div>
   </section>
 
@@ -790,9 +796,16 @@
     <p class="footer-brand">Avalon Silverware</p>
     <p class="footer-tagline">Quality flatware designed for everyday family life.</p>
     <p class="footer-links">
-      <a href="https://www.amazon.com/dp/B07F1X617C" target="_blank" rel="noopener noreferrer">Available on Amazon</a>
+      <a href="https://www.amazon.com/dp/B07F1X617C" target="_blank" rel="noopener noreferrer" title="Available on Amazon">Amazon</a>
       <span class="sep">·</span>
-      <a href="mailto:support@avalonsilverware.com">Contact: support@avalonsilverware.com</a>
+      <a href="https://www.facebook.com/avalonaks" target="_blank" rel="noopener noreferrer" title="Facebook">
+        <svg class="footer-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12S0 5.446 0 12.073c0 6.015 4.388 11.017 10.125 11.879V15.84H7.078v-3.767h3.047V9.43c0-3.008 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953h-1.513c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.767h-2.796v8.112C19.612 23.027 24 18.062 24 12.073z"/></svg>
+      </a>
+      <span class="sep">·</span>
+      <a href="mailto:avalonaks@gmail.com" title="Contact us">
+        <svg class="footer-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        avalonaks@gmail.com
+      </a>
     </p>
     <p class="footer-copy">© Avalon Silverware. All rights reserved.</p>
   </footer>
@@ -833,6 +846,7 @@
       initSlider();
       window.addEventListener('resize', initSlider);
 
+      var productVersions = document.querySelector('.product-versions');
       tabBtns.forEach(function (btn, i) {
         btn.addEventListener('click', function () {
           tabBtns.forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
@@ -841,6 +855,7 @@
           btn.setAttribute('aria-selected', 'true');
           if (tabPanels[i]) tabPanels[i].classList.add('active');
           updateSlider(btn);
+          if (productVersions) productVersions.setAttribute('data-active', i === 0 ? 'silver' : 'black');
         });
       });
     })();
