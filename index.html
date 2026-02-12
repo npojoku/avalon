@@ -6,16 +6,16 @@
   <title>Avalon 24-Piece Silverware | Stainless Steel Flatware</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --cream: #f8f5f0;
-      --charcoal: #1a1816;
-      --warm-gray: #5c5652;
-      --accent: #9a7b5c;
+      --black: #1d1d1f;
       --white: #fff;
-      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-      --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+      --gray-1: #86868b;
+      --gray-2: #f5f5f7;
+      --gray-3: #d2d2d7;
+      --link: #0066cc;
+      --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
     }
 
     * {
@@ -29,31 +29,33 @@
     }
 
     body {
-      font-family: 'Outfit', sans-serif;
-      font-weight: 300;
-      background: var(--charcoal);
-      color: var(--cream);
-      line-height: 1.6;
+      font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Roboto, sans-serif;
+      font-weight: 400;
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.47059;
       min-height: 100vh;
       overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
     }
 
     /* ---- Hero ---- */
     .hero {
       position: relative;
       height: 100vh;
-      min-height: 560px;
+      min-height: 600px;
       display: flex;
       align-items: center;
       justify-content: center;
       overflow: hidden;
+      background: var(--black);
     }
 
     .hero-bg {
       position: absolute;
       inset: 0;
-      transform: scale(1.05);
-      animation: heroZoom 20s ease-out forwards;
+      transform: scale(1.03);
+      animation: heroZoom 24s ease-out forwards;
     }
 
     .hero-bg img {
@@ -62,19 +64,20 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      opacity: 0.72;
     }
 
     .hero-bg::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, rgba(26,24,22,0.4) 0%, rgba(26,24,22,0.75) 70%, rgba(26,24,22,0.95) 100%);
+      background: linear-gradient(to top, var(--black) 0%, transparent 55%);
       pointer-events: none;
     }
 
     @keyframes heroZoom {
-      from { transform: scale(1.15); }
-      to { transform: scale(1.05); }
+      from { transform: scale(1.08); }
+      to { transform: scale(1.03); }
     }
 
     .hero-content {
@@ -85,38 +88,35 @@
     }
 
     .hero-content h1 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.5rem, 12vw, 7rem);
+      font-size: clamp(3rem, 11vw, 5.5rem);
       font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      letter-spacing: -0.025em;
       color: var(--white);
-      text-shadow: 0 0 60px rgba(0,0,0,0.5);
       opacity: 0;
-      animation: fadeUp 1s var(--ease-out-expo) 0.3s forwards;
+      animation: fadeUp 1s var(--ease) 0.2s forwards;
     }
 
     .hero-tagline {
-      font-size: clamp(0.95rem, 2.5vw, 1.15rem);
-      letter-spacing: 0.35em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.85);
-      margin-top: 0.75rem;
+      font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+      font-weight: 400;
+      color: var(--gray-3);
+      margin-top: 0.5rem;
+      letter-spacing: -0.01em;
       opacity: 0;
-      animation: fadeUp 1s var(--ease-out-expo) 0.6s forwards;
+      animation: fadeUp 1s var(--ease) 0.45s forwards;
     }
 
     .hero-scroll {
       position: absolute;
-      bottom: 2rem;
+      bottom: 2.5rem;
       left: 50%;
       transform: translateX(-50%);
-      width: 28px;
-      height: 44px;
-      border: 2px solid rgba(255,255,255,0.4);
-      border-radius: 20px;
+      width: 26px;
+      height: 42px;
+      border: 1.5px solid rgba(255,255,255,0.35);
+      border-radius: 16px;
       opacity: 0;
-      animation: fadeUp 1s var(--ease-out-expo) 1s forwards;
+      animation: fadeUp 1s var(--ease) 0.8s forwards;
     }
 
     .hero-scroll::before {
@@ -124,60 +124,55 @@
       position: absolute;
       top: 8px;
       left: 50%;
-      width: 4px;
-      height: 8px;
-      background: rgba(255,255,255,0.8);
+      width: 3px;
+      height: 6px;
+      background: rgba(255,255,255,0.7);
       border-radius: 2px;
       transform: translateX(-50%);
-      animation: scrollDot 2s ease-in-out infinite;
+      animation: scrollDot 2.2s ease-in-out infinite;
     }
 
     @keyframes scrollDot {
-      0%, 100% { opacity: 0.3; transform: translateX(-50%) translateY(0); }
-      50% { opacity: 1; transform: translateX(-50%) translateY(12px); }
+      0%, 100% { opacity: 0.4; transform: translateX(-50%) translateY(0); }
+      50% { opacity: 1; transform: translateX(-50%) translateY(10px); }
     }
 
     @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(28px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
-    /* ---- Intro block ---- */
+    /* ---- Intro ---- */
     .intro {
-      background: var(--charcoal);
-      padding: clamp(4rem, 10vw, 7rem) 1.5rem;
+      background: var(--white);
+      padding: clamp(5rem, 12vw, 8rem) 1.5rem;
       text-align: center;
     }
 
     .intro .wrap {
-      max-width: 640px;
+      max-width: 580px;
       margin: 0 auto;
     }
 
     .intro h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 5vw, 3rem);
+      font-size: clamp(2.5rem, 5vw, 3.25rem);
       font-weight: 600;
-      margin-bottom: 1rem;
-      color: var(--white);
+      letter-spacing: -0.02em;
+      color: var(--black);
+      margin-bottom: 0.75rem;
     }
 
     .intro p {
-      font-size: 1.1rem;
-      color: rgba(248,245,240,0.8);
-      line-height: 1.75;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--gray-1);
+      line-height: 1.5;
     }
 
     .reveal {
       opacity: 0;
-      transform: translateY(32px);
-      transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+      transform: translateY(24px);
+      transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
     }
 
     .reveal.visible {
@@ -185,62 +180,262 @@
       transform: translateY(0);
     }
 
-    /* ---- Gallery ---- */
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-template-rows: auto auto;
-      gap: 0.5rem;
-      max-width: 1400px;
+    /* ---- Brand story ---- */
+    .brand-story {
+      background: var(--gray-2);
+      padding: clamp(5rem, 12vw, 9rem) 1.5rem;
+      text-align: center;
+    }
+
+    .brand-story .wrap {
+      max-width: 640px;
       margin: 0 auto;
-      padding: 0 0.5rem 4rem;
     }
 
-    @media (max-width: 900px) {
-      .gallery { grid-template-columns: 1fr 1fr; }
+    .brand-story h2 {
+      font-size: clamp(1.75rem, 4vw, 2.25rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
     }
 
-    @media (max-width: 560px) {
-      .gallery { grid-template-columns: 1fr; }
+    .brand-story p {
+      font-size: 1.125rem;
+      font-weight: 400;
+      color: var(--gray-1);
+      line-height: 1.6;
+    }
+
+    .brand-story p + p {
+      margin-top: 1rem;
+    }
+
+    /* ---- Product set details ---- */
+    .set-details-section {
+      background: var(--white);
+      padding: clamp(5rem, 12vw, 9rem) 1.5rem;
+    }
+
+    .set-details-section .wrap {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .set-details-section h2 {
+      font-size: clamp(2.5rem, 5vw, 3.25rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      text-align: center;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .set-details-section .subtitle {
+      text-align: center;
+      font-size: 1.125rem;
+      color: var(--gray-1);
+      margin-bottom: 2rem;
+    }
+
+    .set-details-list {
+      list-style: none;
+    }
+
+    .set-details-list li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+      font-size: 1.0625rem;
+      color: var(--black);
+      line-height: 1.45;
+    }
+
+    .set-details-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.5em;
+      width: 6px;
+      height: 6px;
+      background: var(--link);
+      border-radius: 50%;
+    }
+
+    .set-details-section .closing {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      color: var(--gray-1);
+      text-align: center;
+      font-style: italic;
     }
 
     .gallery-item {
       position: relative;
       overflow: hidden;
-      border-radius: 12px;
+      border-radius: 8px;
       aspect-ratio: 4/3;
-      background: #2a2624;
+      background: var(--gray-2);
     }
 
     .gallery-item img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      transition: transform 0.8s var(--ease-out-expo);
+      transition: transform 0.6s var(--ease);
     }
 
     .gallery-item:hover img {
-      transform: scale(1.08);
+      transform: scale(1.04);
     }
 
-    .gallery-item.wide {
-      grid-column: span 2;
-      aspect-ratio: 21/9;
+    /* ---- Product versions (tabs) ---- */
+    .product-versions {
+      padding: clamp(5rem, 12vw, 9rem) 1.5rem;
+      background: var(--gray-2);
     }
 
-    @media (max-width: 900px) {
-      .gallery-item.wide { grid-column: span 2; aspect-ratio: 2/1; }
+    .product-versions-heading {
+      font-size: clamp(2.5rem, 5vw, 3.25rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      text-align: center;
+      color: var(--black);
+      margin-bottom: 0.5rem;
     }
 
-    @media (max-width: 560px) {
-      .gallery-item.wide { grid-column: span 1; aspect-ratio: 16/10; }
+    .product-versions-sub {
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: 400;
+      color: var(--gray-1);
+      margin-bottom: 2.5rem;
+    }
+
+    .tab-frame {
+      max-width: 980px;
+      margin: 0 auto;
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+
+    .tab-buttons {
+      display: flex;
+      position: relative;
+      border-bottom: 1px solid var(--gray-3);
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 1rem 1.5rem;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--gray-1);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      transition: color 0.35s var(--ease);
+      position: relative;
+      z-index: 1;
+    }
+
+    .tab-btn:hover {
+      color: var(--black);
+      background: rgba(0,0,0,0.03);
+    }
+
+    .tab-btn.active {
+      color: var(--link);
+    }
+
+    .tab-btn.active:hover {
+      background: transparent;
+    }
+
+    .tab-slider {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50%;
+      height: 2px;
+      background: var(--link);
+      border-radius: 1px;
+      transition: transform 0.4s var(--ease), width 0.4s var(--ease);
+      will-change: transform;
+    }
+
+    .tab-panels {
+      position: relative;
+      min-height: 280px;
+    }
+
+    .tab-panel {
+      position: absolute;
+      inset: 0;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: opacity 0.4s var(--ease), transform 0.4s var(--ease), visibility 0.4s;
+      overflow-y: auto;
+    }
+
+    .tab-panel.active {
+      position: relative;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .tab-panel .version-gallery {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.75rem;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    @media (min-width: 640px) {
+      .tab-panel .version-gallery {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .tab-panel .version-gallery .gallery-item {
+      aspect-ratio: 4/3;
+      opacity: 0;
+      transform: translateY(16px) scale(0.98);
+      transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
+    }
+
+    .tab-panel.active .version-gallery .gallery-item {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .tab-panel.active .version-gallery .gallery-item:nth-child(1) { transition-delay: 0.05s; }
+    .tab-panel.active .version-gallery .gallery-item:nth-child(2) { transition-delay: 0.12s; }
+    .tab-panel.active .version-gallery .gallery-item:nth-child(3) { transition-delay: 0.19s; }
+    .tab-panel.active .version-gallery .gallery-item:nth-child(4) { transition-delay: 0.26s; }
+
+    .tab-panel .version-gallery .gallery-item img {
+      transition: transform 0.5s var(--ease);
+    }
+
+    .tab-panel .version-gallery .gallery-item:hover img {
+      transform: scale(1.06);
     }
 
     /* ---- Features ---- */
     .features-section {
-      background: var(--cream);
-      color: var(--charcoal);
-      padding: clamp(4rem, 10vw, 6rem) 1.5rem;
+      background: var(--white);
+      padding: clamp(5rem, 12vw, 9rem) 1.5rem;
     }
 
     .features-section .wrap {
@@ -249,83 +444,83 @@
     }
 
     .features-section h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-size: clamp(2.5rem, 5vw, 3.25rem);
       font-weight: 600;
+      letter-spacing: -0.02em;
       margin-bottom: 2rem;
       text-align: center;
+      color: var(--black);
     }
 
     .features-list {
       list-style: none;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.25rem;
     }
 
     .features-list li {
       position: relative;
-      padding: 1.5rem 1.25rem;
-      padding-left: 2.5rem;
-      background: var(--white);
+      padding: 1.75rem 1.5rem;
+      padding-left: 2rem;
+      background: var(--gray-2);
       border-radius: 12px;
-      box-shadow: 0 4px 24px rgba(26,24,22,0.06);
-      transition: transform 0.4s var(--ease-out-expo), box-shadow 0.4s ease;
+      transition: background 0.25s ease;
     }
 
     .features-list li:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 40px rgba(26,24,22,0.1);
+      background: #ebebed;
     }
 
     .features-list li::before {
       content: '';
       position: absolute;
       left: 1.25rem;
-      top: 1.5rem;
-      width: 8px;
-      height: 8px;
-      background: var(--accent);
+      top: 1.75rem;
+      width: 4px;
+      height: 4px;
+      background: var(--black);
       border-radius: 50%;
     }
 
     .features-list li strong {
       display: block;
-      font-weight: 500;
+      font-weight: 600;
+      font-size: 1.05rem;
       margin-bottom: 0.25rem;
-      color: var(--charcoal);
+      color: var(--black);
     }
 
     .features-list li span {
-      font-size: 0.95rem;
-      color: var(--warm-gray);
+      font-size: 0.9375rem;
+      color: var(--gray-1);
+      line-height: 1.45;
     }
 
     /* ---- Product benefits ---- */
     .benefits-section {
-      background: var(--white);
-      color: var(--charcoal);
-      padding: clamp(3rem, 8vw, 5rem) 1.5rem;
+      background: var(--gray-2);
+      padding: clamp(5rem, 12vw, 9rem) 1.5rem;
     }
 
     .benefits-section .wrap {
-      max-width: 720px;
+      max-width: 680px;
       margin: 0 auto;
     }
 
     .benefits-section h2 {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 2.75rem);
+      font-size: clamp(2.5rem, 5vw, 3.25rem);
       font-weight: 600;
+      letter-spacing: -0.02em;
       margin-bottom: 0.5rem;
       text-align: center;
-      color: var(--charcoal);
+      color: var(--black);
     }
 
     .benefits-section .subtitle {
       text-align: center;
-      font-size: 0.9rem;
-      color: var(--warm-gray);
+      font-size: 1.125rem;
+      color: var(--gray-1);
       margin-bottom: 2rem;
     }
 
@@ -335,11 +530,11 @@
 
     .benefits-list li {
       position: relative;
-      padding-left: 1.75rem;
-      margin-bottom: 1.5rem;
-      font-size: 1rem;
-      line-height: 1.65;
-      color: var(--charcoal);
+      padding-left: 1.5rem;
+      margin-bottom: 1.25rem;
+      font-size: 1.0625rem;
+      line-height: 1.55;
+      color: var(--black);
     }
 
     .benefits-list li:last-child {
@@ -350,97 +545,134 @@
       content: '';
       position: absolute;
       left: 0;
-      top: 0.5em;
-      width: 6px;
-      height: 6px;
-      background: var(--accent);
+      top: 0.55em;
+      width: 4px;
+      height: 4px;
+      background: var(--gray-1);
       border-radius: 50%;
     }
 
     .benefits-list li strong {
-      color: var(--charcoal);
+      color: var(--black);
       font-weight: 600;
     }
 
     /* ---- CTA ---- */
     .cta-section {
-      background: linear-gradient(180deg, #2a2624 0%, var(--charcoal) 100%);
-      padding: clamp(3rem, 8vw, 5rem) 1.5rem;
+      background: var(--white);
+      padding: clamp(4rem, 10vw, 6rem) 1.5rem;
       text-align: center;
+    }
+
+    .cta-section .wrap {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(2.5rem, 5vw, 3.25rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: var(--black);
+      margin-bottom: 0.5rem;
+    }
+
+    .cta-section .cta-sub {
+      font-size: 1.25rem;
+      color: var(--gray-1);
+      margin-bottom: 1.75rem;
     }
 
     .cta-btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
-      background: var(--white);
-      color: var(--charcoal);
+      gap: 0.5rem;
+      background: var(--link);
+      color: var(--white);
       text-decoration: none;
-      font-weight: 600;
-      font-size: 1rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      padding: 1.1rem 2.25rem;
-      border-radius: 50px;
-      transition: transform 0.35s var(--ease-out-expo), box-shadow 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .cta-btn::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-      transition: left 0.6s ease;
+      font-size: 1.0625rem;
+      font-weight: 500;
+      padding: 0.75rem 1.5rem;
+      border-radius: 980px;
+      transition: background 0.25s ease, transform 0.2s ease;
     }
 
     .cta-btn:hover {
-      transform: translateY(-3px) scale(1.02);
-      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
-    }
-
-    .cta-btn:hover::before {
-      left: 100%;
+      background: #005bb5;
+      transform: scale(1.02);
     }
 
     .cta-btn svg {
-      width: 18px;
-      height: 18px;
-      transition: transform 0.3s ease;
-    }
-
-    .cta-btn:hover svg {
-      transform: translateX(4px);
+      width: 16px;
+      height: 16px;
+      opacity: 0.9;
     }
 
     /* ---- Footer ---- */
     footer {
-      padding: 1.75rem 1.5rem;
+      padding: clamp(2.5rem, 6vw, 3.5rem) 1.5rem;
       text-align: center;
       font-size: 0.875rem;
-      color: rgba(248,245,240,0.5);
+      color: var(--gray-1);
+      background: var(--gray-2);
+      border-top: 1px solid var(--gray-3);
     }
 
-    footer p {
-      margin: 0 0 0.5rem;
+    .footer-brand {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--black);
+      margin-bottom: 0.25rem;
     }
 
-    footer p:last-child {
+    .footer-tagline {
+      font-size: 0.9375rem;
+      margin-bottom: 1.25rem;
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer-links {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .footer-links a {
+      color: var(--link);
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-links .sep {
+      margin: 0 0.5rem;
+      color: var(--gray-3);
+      pointer-events: none;
+    }
+
+    @media (max-width: 520px) {
+      .footer-links .sep {
+        display: block;
+        margin: 0.5rem 0;
+      }
+    }
+
+    .footer-copy {
+      font-size: 0.8125rem;
+      color: var(--gray-3);
       margin-bottom: 0;
     }
 
     footer a {
-      color: var(--accent);
+      color: var(--link);
       text-decoration: none;
-      transition: color 0.2s;
     }
 
     footer a:hover {
-      color: var(--cream);
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -463,23 +695,44 @@
     </div>
   </section>
 
-  <div class="gallery">
-    <div class="gallery-item reveal">
-      <img src="images/gallery1.jpg" alt="Avalon flatware set" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80'">
+  <section class="brand-story">
+    <div class="wrap">
+      <h2 class="reveal">More Than Silverware — It’s About Being Together</h2>
+      <p class="reveal">At Avalon, we believe the dining table is more than just a place to eat. It’s where families connect, stories are shared, and memories are made.</p>
+      <p class="reveal">Our silverware is designed to quietly support those moments — strong enough for everyday use, beautiful enough to make each meal feel special. From busy weekday dinners to warm family gatherings, Avalon is made to be part of your home.</p>
     </div>
-    <div class="gallery-item reveal">
-      <img src="images/gallery2.jpg" alt="Avalon silverware on table" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=800&q=80'">
+  </section>
+
+  <section class="product-versions" id="finishes">
+    <h2 class="product-versions-heading reveal">Choose your finish</h2>
+    <p class="product-versions-sub reveal">Available in Silver and Black — same quality, same 24-piece set.</p>
+
+    <div class="tab-frame reveal">
+      <div class="tab-buttons" role="tablist" aria-label="Product finish">
+        <span class="tab-slider" id="tab-slider" aria-hidden="true"></span>
+        <button type="button" class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-silver" id="tab-silver">Silver</button>
+        <button type="button" class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-black" id="tab-black">Black</button>
+      </div>
+      <div class="tab-panels">
+        <div class="tab-panel active" id="panel-silver" role="tabpanel" aria-labelledby="tab-silver">
+          <div class="version-gallery">
+            <div class="gallery-item"><img src="images/white1.jpg" alt="Avalon Silver flatware set" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/white2.jpg" alt="Avalon Silver silverware" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/white3.jpg" alt="Avalon Silver 24-piece set" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/white4.jpg" alt="Avalon Silver flatware detail" loading="lazy"></div>
+          </div>
+        </div>
+        <div class="tab-panel" id="panel-black" role="tabpanel" aria-labelledby="tab-black">
+          <div class="version-gallery">
+            <div class="gallery-item"><img src="images/black1.jpg" alt="Avalon Black flatware set" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/black2.jpg" alt="Avalon Black silverware" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/black3.jpg" alt="Avalon Black 24-piece set" loading="lazy"></div>
+            <div class="gallery-item"><img src="images/black4.jpg" alt="Avalon Black flatware detail" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="gallery-item reveal">
-      <img src="images/gallery3.jpg" alt="Avalon 24-piece set" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80'">
-    </div>
-    <div class="gallery-item wide reveal">
-      <img src="images/gallery4.jpg" alt="Avalon stainless steel flatware" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80'">
-    </div>
-    <div class="gallery-item reveal">
-      <img src="images/gallery5.jpg" alt="Avalon cutlery detail" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1578474846511-04ba529f0b88?auto=format&fit=crop&w=800&q=80'">
-    </div>
-  </div>
+  </section>
 
   <section class="features-section">
     <div class="wrap">
@@ -492,10 +745,26 @@
     </div>
   </section>
 
+  <section class="set-details-section">
+    <div class="wrap">
+      <h2 class="reveal">What’s Included</h2>
+      <p class="subtitle reveal">Everything you need for everyday dining.</p>
+      <ul class="set-details-list">
+        <li class="reveal">24-Piece Flatware Set</li>
+        <li class="reveal">Service for 4 people</li>
+        <li class="reveal">Forks, knives, tablespoons, teaspoons</li>
+        <li class="reveal">High-grade stainless steel</li>
+        <li class="reveal">Rust & corrosion resistant</li>
+        <li class="reveal">Dishwasher safe</li>
+      </ul>
+      <p class="closing reveal">Thoughtfully designed for long-term daily use.</p>
+    </div>
+  </section>
+
   <section class="benefits-section">
     <div class="wrap">
       <h2 class="reveal">Product benefits</h2>
-      <p class="subtitle reveal">Silver · 24-piece set</p>
+      <p class="subtitle reveal">Silver & Black · 24-piece set</p>
       <ul class="benefits-list">
         <li class="reveal"><strong>Made to last a lifetime</strong> – Expertly crafted by Japanese artisans from high-grade 18/10 stainless steel, this silverware is rust and corrosion resistant, keeping its polished shine and elegance for years.</li>
         <li class="reveal"><strong>A gift they’ll cherish</strong> – Comes in a sleek luxury gift box, perfect for weddings, anniversaries, housewarmings, holidays, or New Year celebrations.</li>
@@ -507,15 +776,25 @@
   </section>
 
   <section class="cta-section">
-    <a href="https://www.amazon.com/Avalon-24-Piece-Silverware-Stainless-Flatware/dp/B07F1X617C" class="cta-btn reveal" target="_blank" rel="noopener noreferrer">
-      View on Amazon
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-    </a>
+    <div class="wrap">
+      <h2 class="reveal">Bring Elegance to Your Family Table</h2>
+      <p class="cta-sub reveal">Ready to upgrade your everyday dining experience?</p>
+      <a href="https://www.amazon.com/dp/B07F1X617C" class="cta-btn reveal" target="_blank" rel="noopener noreferrer">
+        Shop Avalon on Amazon
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
   </section>
 
   <footer>
-    <p>Contact: <a href="mailto:avalonaks@gmail.com">avalonaks@gmail.com</a></p>
-    <p>Product page for <a href="https://www.amazon.com/Avalon-24-Piece-Silverware-Stainless-Flatware/dp/B07F1X617C" target="_blank" rel="noopener noreferrer">Avalon 24-Piece Silverware</a>.</p>
+    <p class="footer-brand">Avalon Silverware</p>
+    <p class="footer-tagline">Quality flatware designed for everyday family life.</p>
+    <p class="footer-links">
+      <a href="https://www.amazon.com/dp/B07F1X617C" target="_blank" rel="noopener noreferrer">Available on Amazon</a>
+      <span class="sep">·</span>
+      <a href="mailto:support@avalonsilverware.com">Contact: support@avalonsilverware.com</a>
+    </p>
+    <p class="footer-copy">© Avalon Silverware. All rights reserved.</p>
   </footer>
 
   <script>
@@ -533,6 +812,37 @@
       window.addEventListener('scroll', reveal);
       window.addEventListener('resize', reveal);
       reveal();
+
+      // Tab switching (Silver / Black) with sliding indicator and panel transition
+      var tabBtns = document.querySelectorAll('.tab-btn');
+      var tabPanels = document.querySelectorAll('.tab-panel');
+      var tabSlider = document.getElementById('tab-slider');
+      var tabButtons = document.querySelector('.tab-buttons');
+
+      function updateSlider(activeBtn) {
+        if (!tabSlider || !activeBtn) return;
+        tabSlider.style.width = activeBtn.offsetWidth + 'px';
+        tabSlider.style.transform = 'translateX(' + activeBtn.offsetLeft + 'px)';
+      }
+
+      function initSlider() {
+        var active = document.querySelector('.tab-btn.active');
+        if (active) updateSlider(active);
+      }
+
+      initSlider();
+      window.addEventListener('resize', initSlider);
+
+      tabBtns.forEach(function (btn, i) {
+        btn.addEventListener('click', function () {
+          tabBtns.forEach(function (b) { b.classList.remove('active'); b.setAttribute('aria-selected', 'false'); });
+          tabPanels.forEach(function (p) { p.classList.remove('active'); });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          if (tabPanels[i]) tabPanels[i].classList.add('active');
+          updateSlider(btn);
+        });
+      });
     })();
   </script>
 </body>
